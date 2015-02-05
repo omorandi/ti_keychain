@@ -301,7 +301,7 @@ Keychain API expects as a validly constructed container class.
 		
         result = SecItemUpdate((CFDictionaryRef)updateItem, (CFDictionaryRef)tempCheck);
         if (result != noErr) {
-            NSLog(@"error updating keychain item: %ld", result);
+            NSLog(@"error updating keychain item: %ld", (long)result);
             NSLog(@"updateItem: %@", [updateItem description]);
         }
     }
@@ -310,7 +310,7 @@ Keychain API expects as a validly constructed container class.
         // No previous item found; add the new one.
         result = SecItemAdd((CFDictionaryRef)[self dictionaryToSecItemFormat:keychainItemData], NULL);
         if (result != noErr) {
-            NSLog(@"error creating keychain item: %ld", result);
+            NSLog(@"error creating keychain item: %ld", (long)result);
             NSLog(@"keychainItemData: %@", [keychainItemData description]);
         }
     }
